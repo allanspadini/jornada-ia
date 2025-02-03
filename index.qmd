@@ -1,0 +1,435 @@
+---
+title: "[Jornada de IA] Redes neurais para IA generativa"
+title-slide-attributes:
+    data-background-image: background-image.png
+    data-background-size: contain
+    data-background-opacity: "1.0"
+    font-size: "18px"
+author: "alura + FIAP"
+format: 
+    revealjs:
+        incremental: true
+        embed-resources: false
+        theme: [night, custom.scss]
+        mermaid:
+            theme: dark
+        chalkboard: true
+
+---
+
+
+## Allan Spadini
+:::: {.columns}
+::: {.column width="70%"}
+
+
+
+::: {.fragment}
+Instrutor Alura - Ciência de dados e IA
+:::
+::: {.fragment}
+Doutor em Geofísica
+:::
+::: {.fragment}
+Pós-graduado em Ciência de dados
+:::
+:::
+
+::: {.column width="30%"}
+![](allan.png)
+:::
+::::
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Situação problema
+
+| x1 - Temperatura do Reator (°C) | x2 - Vazão de Matéria-Prima (L/min) | y - Qualidade do Produto (Classe) |
+|---------------------------------|-------------------------------------|-----------------------------------|
+| 85                              | 12                                  | Dentro da Especificação          |
+| 92                              | 18                                  | Fora da Especificação            |
+| 78                              | 10                                  | Dentro da Especificação          |
+| 105                             | 25                                  | Fora da Especificação            |
+| 88                              | 15                                  | Dentro da Especificação          |
+
+
+## Estrutura de um perceptron
+
+::: {.fragment}
+![Perceptron simples](perceptron_simples.png){width="30%"}
+:::
+
+::: {.fragment}
+$$ y = w_1 \cdot x_1 + w_2 \cdot x_2 $$
+:::
+
+## Problemas lineares
+
+::: {.fragment}
+![Separação linear](linear.png){width="90%"}
+:::
+
+## Problemas lineares
+
+::: {.fragment}
+![Separação linear](duasareas.png){width="90%"}
+:::
+
+## Estrutura de uma rede
+
+::: {.fragment}
+![Perceptron não tão simples](perceptron2.png){width="40%"}
+:::
+
+::: {.fragment}
+$$ \hat{y} = w_0^{(2)} \cdot \left(w_{00}^{(1)} \cdot x_0 + w_{01}^{(1)} \cdot x_1 + b_1\right) + \\ w_1^{(2)} \cdot \left(w_{10}^{(1)} \cdot x_0 + w_{11}^{(1)} \cdot x_1 + b_2\right) + b_3 $$
+:::
+
+## Problemas lineares
+
+::: {.fragment}
+![Separação linear](duasretas.png){width="90%"}
+:::
+
+## Problemas não-lineares
+
+::: {.fragment}
+![Não-linear](naolinear.png){width="90%"}
+:::
+
+## Funções de ativação
+
+::: {.fragment}
+![Rede com função de ativação](ativacao.png){width="60%"}
+:::
+
+::: {.fragment}
+$$ y = f(w_1 \cdot x_1 + w_2 \cdot x_2) $$
+:::
+
+## Tipos de Funções de Ativação
+
+
+::: {.fragment}
+**Lineares**  
+- Sigmoide  
+- Tanh  
+- ReLU  
+- Leaky ReLU  
+- Softmax
+:::
+
+## Função ReLU 
+::: {.fragment}
+![ReLU](relu.png)
+:::
+
+## Função sigmóide
+::: {.fragment}
+![Sigmóide](sigmoid.png)
+:::
+
+## Adicionando complexidade
+
+[Funções de ativação](https://www.linkedin.com/feed/update/urn:li:activity:7292128678107316225?utm_source=share&utm_medium=member_desktop)
+
+## Perceptron de múltiplas camadas
+::: {.fragment}
+![Multi-Layer Perceptron](rede.jpg)
+:::
+
+
+## Arquitetura de Redes Neurais
+
+::: {.fragment}
+**Componentes Essenciais**  
+- Camadas densamente conectadas  
+- Normalização de dados  
+- Funções de perda (MSE, Cross-Entropy)  
+- Otimizadores (SGD, Adam)
+:::
+
+
+
+## Deep Learning vs Machine Learning Tradicional
+
+::: {.fragment}
+**Vantagens Chave**  
+- Extração automática de features  
+- Capacidade de modelar relações não-lineares complexas  
+- Adaptabilidade a diferentes tipos de dados (imagens, texto, séries temporais)
+:::
+
+::: {.fragment}
+**Desafios**  
+- Necessidade de grandes volumes de dados  
+- Requisitos computacionais intensivos  
+- Complexidade de interpretação
+:::
+
+## Backpropagation e Gradiente Descendente
+
+::: {.fragment}
+**O Algoritmo Fundamental**  
+$$ \theta_{t+1} = \theta_t - \eta \cdot \nabla_\theta J(\theta) $$
+:::
+
+::: {.fragment}
+![https://machinelearningknowledge.ai/wp-content/uploads/2019/10/Backpropagation.gif](https://machinelearningknowledge.ai/wp-content/uploads/2019/10/Backpropagation.gif)
+:::
+
+## Tarefas de visão computacional
+
+:::: {.columns}
+
+::: {.column width="25%"}
+::: {.fragment}
+![Classificação](oia.png)
+:::
+:::
+
+
+::: {.column width="25%"}
+::: {.fragment}
+![Classificação e detecção](oia2.png)
+:::
+:::
+
+
+::: {.column width="25%"}
+::: {.fragment}
+![Detecção de objetos](catdogobj.png)
+:::
+:::
+
+
+::: {.column width="25%"}
+::: {.fragment}
+![Segmentação semântica](catdogseg.png)
+:::
+:::
+::::
+
+## Classificação de imagens
+
+
+- Controle de Qualidade em Linhas de Produção: Usar deep learning para classificar produtos como “aprovados” ou “reprovados” com base em imagens capturadas por câmeras em linhas de produção simuladas.
+- Identificação de Equipamentos: Classificação de diferentes tipos de máquinas ou equipamentos em um ambiente simulado para facilitar a configuração de cenários.
+
+## Classificação de imagens
+
+- Classificação de Estoques: Identificar e classificar automaticamente itens armazenados em prateleiras simuladas em um centro de distribuição.
+- [Suzano: Avarias nos fardos de celulose](https://investnews.com.br/negocios/suzano-avalia-expansao-nos-eua-com-compra-de-empresa-da-kraft/)
+
+## Detecção de objetos
+
+- Detecção de Gargalos Operacionais: Detectar automaticamente a presença de empilhadeiras, operadores ou máquinas que estão causando bloqueios em áreas simuladas.
+- Monitoramento de Atividades: Identificar e rastrear a movimentação de produtos, veículos ou pessoas em um ambiente simulado para análise de eficiência.
+- Segurança no Ambiente de Trabalho: Detectar a presença de trabalhadores em áreas perigosas simuladas para avaliar riscos e sugerir melhorias.
+
+
+## Segmentação semântica
+
+- Simulação de Layouts Industriais: Segmentar o ambiente simulado em diferentes áreas (linhas de produção, áreas de armazenamento, corredores, etc.) para análise detalhada de fluxo e eficiência.
+- Análise de Ocupação de Espaço: Identificar como diferentes áreas de um armazém ou fábrica estão sendo utilizadas, ajudando a otimizar layouts simulados.
+- Detecção de Anomalias: Segmentar áreas de falhas ou problemas em equipamentos simulados, como vazamentos ou superfícies danificadas.
+[Gestalt Robotics](https://www.gestalt-robotics.com/technology-modules/semantic-segmentation)
+
+## Imagens e IA generativa
+
+[Vídeo do tiktok](https://www.tiktok.com/@neurosyncm/video/7466529929002274054?lang=pt-BR)
+
+
+## Redes Convolucionais (CNNs)
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
+- Operações de convolução  
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+![Filtro de convolução](filtroconv.webp)
+:::
+:::
+::::
+
+
+## Redes Convolucionais (CNNs)
+
+:::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
+- Pooling layers   
+- Arquiteturas famosas (ResNet, VGG) 
+:::
+:::
+
+
+
+::: {.column width="40%"}
+::: {.fragment}
+![Camadas com convolução](neuralfull.png)
+:::
+:::
+::::
+
+## Redes Recorrentes (RNNs/LSTMs)
+
+:::: {.columns}
+
+::: {.column width="60%"}
+::: {.fragment}
+**Modelagem Sequencial**  
+- Portas de esquecimento  
+- Memória de longo prazo  
+- Aplicações em NLP e séries temporais
+:::
+:::
+
+::: {.column width="40%"}
+::: {.fragment}
+![Rede recorrente](lstm_cell.jpg)
+:::
+:::
+
+::::
+
+## Aplicações de Redes Recorrentes (RNNs/LSTMs)
+
+- Previsão de Demanda em Estoques: Usar LSTMs para prever a demanda de produtos em um centro de distribuição simulado, ajudando a otimizar o armazenamento e reabastecimento.
+- Identificação de Problemas Logísticos: Detectar comportamentos anômalos em fluxos de transporte simulados, como atrasos inesperados ou congestionamentos.
+
+## Aplicações de Redes Recorrentes (RNNs/LSTMs)
+
+- Avaliação de Impactos em Cadeias de Suprimento: Simular cadeias de suprimento dinâmicas, prevendo como atrasos ou interrupções em um ponto afetam o restante da cadeia.
+
+## IA Generativa: Conceitos Fundamentais
+
+::: {.fragment}
+**Técnicas Principais**  
+- Autoencoders Variacionais (VAEs)  
+- Redes Adversárias Generativas (GANs)
+- Redes difusoras
+- Transformers
+:::
+
+## Autoencoders Variacionais (VAEs) 
+
+![VAE](VAE_Basic.png)
+
+[Variational Autoencoders](https://data-science-blog.com/blog/2022/04/19/variational-autoencoders/)
+
+## Aplicações (VAEs) 
+
+ - Compressão de dados
+ - Redução de ruído
+ - Detecção de defeitos
+
+## Detecção de defeitos - treinamento
+
+- A VAE é alimentada com muitas imagens de produtos sem defeitos
+- Aprende a representação "normal" dos produtos
+- Cria um espaço latente que representa características normais
+- Estabelece um padrão de reconstrução para peças perfeitas
+
+## Detecção de defeitos - detecção
+
+- Novas peças são processadas pela VAE
+- Calcula-se o erro de reconstrução
+- Defeitos aparecem como anomalias na reconstrução
+- Define-se um limiar para classificar como defeito
+
+## Redes Adversárias Generativas (GANs)
+
+![GANs](Generative_adversarial_network.png)
+
+## Redes difusoras
+
+![Difusores](difu1.png)
+
+## Redes difusoras
+
+![Difusores](difu2.png)
+
+## Transformers e Modelos de Linguagem
+
+::: {.fragment}
+- Mecanismo de atenção  
+- Arquitetura encoder-decoder  
+- Aplicações em GPT e BERT  
+- Fine-tuning para tarefas específicas
+:::
+
+::: {.fragment}
+![Transformer Architecture](transformer.jpg)
+:::
+
+## Transformers
+
+![Transformer Architecture](transformer.png)
+
+
+## Completação
+
+![Sequência de tokens](comple.png)
+
+
+## PyTorch: Visão Geral
+
+::: {.fragment}
+**Principais Módulos**  
+- torch.Tensor  
+- autograd  
+- nn.Module  
+- Optimizers  
+- DataLoader
+:::
+
+::: {.fragment}
+**Vantagens**  
+- Computação dinâmica de grafos  
+- GPU acceleration  
+- Ecossistema rico (TorchVision, TorchText)
+:::
+
+## Fluxo de Trabalho Típico
+
+::: {.fragment}
+1. Preparação de dados  
+2. Definição da arquitetura  
+3. Treinamento do modelo  
+4. Avaliação de performance  
+5. Deployment
+:::
+
+::: {.fragment}
+```python
+# Exemplo de loop de treinamento
+for epoch in range(epochs):
+    for batch in dataloader:
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+```
+
+:::
+
+
+## Desafios e Considerações Éticas
+::: {.fragment}
+
+Viés em modelos generativos
+
+Segurança de sistemas autônomos
+
+Sustentabilidade computacional
+
+Responsabilidade por decisões automatizadas
+:::
+
